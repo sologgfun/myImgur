@@ -26,9 +26,10 @@ app.use(bodyParser());
 // app.use(home.allowedMethods());
 app.use(async (ctx) => {
     if (ctx.url === '/' && ctx.method === 'GET') {
+        console.log("123");
         // 当GET请求时候返回表单页面
         let html = `这是一个get请求`;
-        ctx.body = html
+        ctx.body = html;
     } else if (ctx.url === '/' && ctx.method === 'POST') {
         // 当POST请求的时候，中间件koa-bodyparser解析POST表单里的数据，并显示出来
         let postData = ctx.request.body
