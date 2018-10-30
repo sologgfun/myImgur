@@ -4,7 +4,13 @@ const Router = require('koa-router')
 const bodyParser = require('koa-bodyparser')
 let home = new Router()
 const fs = require('fs');
+const static = require('koa-static')
+const path = require('path')
 
+const staticPath = './static';
+app.use(static(
+    path.join(__dirname, staticPath)
+))
 app.use(bodyParser());
 // app.use(home.routes());
 // home.post('/upload', function (req, res) {
@@ -36,7 +42,7 @@ app.use(async (ctx) => {
         var dataBuffer = postData.pic.data;
         // dataBuffer.toString("base64");
         dataBuffer = new Buffer(dataBuffer);
-        fs.writeFile("image.png", dataBuffer, function (err) {
+        fs.writeFile(path.join(__dirname, staticPath), dataBuffer, function (err) {
             if (err) {
                 res.send(err);
             } else {
