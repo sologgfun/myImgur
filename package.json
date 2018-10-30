@@ -1,0 +1,25 @@
+{
+  "name": "myimgur",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "koa": "^2.6.1",
+    "koa-bodyparser": "^3.2.0",
+    "koa-router": "^7.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sologgfun/myImgur.git"
+  },
+  "author": "wjf",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sologgfun/myImgur/issues"
+  },
+  "homepage": "https://github.com/sologgfun/myImgur#readme"
+}
