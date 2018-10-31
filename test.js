@@ -19,23 +19,19 @@ app.use(async (ctx) => {
         let html = `这是一个get请求`;
         ctx.body = html;
     } else if (ctx.url === '/' && ctx.method === 'POST') {
-        console.log("post");
-        let html = `这是一个get请求`;
-        ctx.body = html;
         // 当POST请求的时候，中间件koa-bodyparser解析POST表单里的数据，并显示出来
         let postData = ctx.request.body
         var dataBuffer = postData.pic.data;
         // dataBuffer.toString("base64");
         dataBuffer = new Buffer(dataBuffer);
-        fs.writeFile(path.join(__dirname, staticPath, "image.png"), dataBuffer, function (err) {
+        fs.writeFile("image.png", dataBuffer, function (err) {
             if (err) {
-                console.log("出错了");
+                res.send(err);
             } else {
-                console.log("保存成功了");
+                console.log("保存成功");
             }
         });
     } else {
-        console.log("?");
         // 其他请求显示404
         ctx.body = '<h1>404！！！ o(╯□╰)o</h1>'
     }
